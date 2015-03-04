@@ -25,6 +25,10 @@ import com.zhadui.personal.biz.PersonalCenterBiz;
 
 public class HeadImageAction extends ActionSupport {
 
+	/**
+	 * @author wang.xr
+	 */
+	private static final long serialVersionUID = 1L;
 	private File headImage;
 	private double imageWidth;
 	private double imageHeight;
