@@ -1,0 +1,188 @@
+!SESSION 2015-03-04 16:43:43.508 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -data E:\工作\zhadui\代码\workspace -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-03-04 16:44:00.493
+!MESSAGE Installed snippet library: D:\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\css_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-03-04 16:44:00.968
+!MESSAGE Installed snippet library: D:\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\forms_lists_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-03-04 16:44:01.009
+!MESSAGE Installed snippet library: D:\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\htmlform_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-03-04 16:44:01.086
+!MESSAGE Installed snippet library: D:\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\html_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-03-04 16:44:01.145
+!MESSAGE Installed snippet library: D:\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\javascript_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-03-04 16:44:01.214
+!MESSAGE Installed snippet library: D:\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\jsf_f_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-03-04 16:44:01.306
+!MESSAGE Installed snippet library: D:\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\jsf_h_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-03-04 16:44:01.388
+!MESSAGE Installed snippet library: D:\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_bean_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-03-04 16:44:01.492
+!MESSAGE Installed snippet library: D:\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_html_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-03-04 16:44:01.579
+!MESSAGE Installed snippet library: D:\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_logic_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-03-04 16:44:01.645
+!MESSAGE Installed snippet library: D:\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_tiles_snippets.xml
+!SESSION 2015-03-04 16:45:08.375 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -data E:\工作\zhadui\代码\workspace -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.osgi 2 0 2015-03-04 16:45:59.346
+!MESSAGE While loading class "org.eclipse.wst.jsdt.internal.core.JavaModelManager$16", thread "Thread[Worker-2,5,main]" timed out waiting (5115ms) for thread "Thread[Worker-6,5,main]" to finish starting bundle "org.eclipse.wst.jsdt.core_1.1.100.me201207241813 [984]". To avoid deadlock, thread "Thread[Worker-2,5,main]" is proceeding but "org.eclipse.wst.jsdt.internal.core.JavaModelManager$16" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:/D:/MyEclipse/Common/plugins/org.eclipse.wst.jsdt.core_1.1.100.me201207241813.jar" by thread "Worker-6".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:320)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelManager$15.run(JavaModelManager.java:4182)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 16 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:320)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelManager$15.run(JavaModelManager.java:4182)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.genuitec.eclipse.struts2 1 0 2015-03-04 16:46:50.077
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.genuitec.eclipse.struts2.model.Struts2Project.findPackageModels(Struts2Project.java:419)
+	at com.genuitec.eclipse.struts2.model.Struts2Project.getAllPackageModels(Struts2Project.java:352)
+	at com.genuitec.eclipse.struts2.model.Struts2XMLFile.getAllPackages(Struts2XMLFile.java:116)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2PackageSourceValidator.validatePackageDuplicaiton(Struts2PackageSourceValidator.java:64)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2PackageSourceValidator.validatePackagesDefinedIn(Struts2PackageSourceValidator.java:126)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2EditorSourceValidator.validatePackages(Struts2EditorSourceValidator.java:31)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2EditorSourceValidator.performValidationOn(Struts2EditorSourceValidator.java:45)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2SourceValidator.performValidationOn(Struts2SourceValidator.java:189)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2SourceValidator.validate(Struts2SourceValidator.java:256)
+	at org.eclipse.wst.validation.Validator$V2.validate(Validator.java:1159)
+	at org.eclipse.wst.validation.internal.ValManager.validate(ValManager.java:737)
+	at org.eclipse.wst.validation.internal.ValManager$1.visit(ValManager.java:697)
+	at org.eclipse.wst.validation.internal.ValManager.accept(ValManager.java:843)
+	at org.eclipse.wst.validation.internal.ValManager.validate(ValManager.java:701)
+	at org.eclipse.wst.validation.internal.ValBuilderJob$Visitor.visit(ValBuilderJob.java:301)
+	at org.eclipse.core.internal.resources.Resource$2.visit(Resource.java:106)
+	at org.eclipse.core.internal.resources.Resource$1.visitElement(Resource.java:65)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:82)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:86)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:86)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.iterate(ElementTreeIterator.java:127)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:75)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:104)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:88)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.fullBuild(ValBuilderJob.java:219)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.run(ValBuilderJob.java:178)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.runInWorkspace(ValBuilderJob.java:126)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.genuitec.eclipse.struts2 1 0 2015-03-04 16:46:50.272
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.genuitec.eclipse.struts2.model.Struts2Project.findPackageModels(Struts2Project.java:419)
+	at com.genuitec.eclipse.struts2.model.Struts2Project.getAllPackageModels(Struts2Project.java:352)
+	at com.genuitec.eclipse.struts2.model.Struts2XMLFile.getAllPackages(Struts2XMLFile.java:116)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2PackageSourceValidator.validatePackageDuplicaiton(Struts2PackageSourceValidator.java:64)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2PackageSourceValidator.validatePackagesDefinedIn(Struts2PackageSourceValidator.java:126)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2EditorSourceValidator.validatePackages(Struts2EditorSourceValidator.java:31)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2EditorSourceValidator.performValidationOn(Struts2EditorSourceValidator.java:45)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2SourceValidator.performValidationOn(Struts2SourceValidator.java:189)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2SourceValidator.validate(Struts2SourceValidator.java:256)
+	at org.eclipse.wst.validation.Validator$V2.validate(Validator.java:1159)
+	at org.eclipse.wst.validation.internal.ValManager.validate(ValManager.java:737)
+	at org.eclipse.wst.validation.internal.ValManager$1.visit(ValManager.java:697)
+	at org.eclipse.wst.validation.internal.ValManager.accept(ValManager.java:843)
+	at org.eclipse.wst.validation.internal.ValManager.validate(ValManager.java:701)
+	at org.eclipse.wst.validation.internal.ValBuilderJob$Visitor.visit(ValBuilderJob.java:301)
+	at org.eclipse.core.internal.resources.Resource$2.visit(Resource.java:106)
+	at org.eclipse.core.internal.resources.Resource$1.visitElement(Resource.java:65)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:82)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:86)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:86)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.iterate(ElementTreeIterator.java:127)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:75)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:104)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:88)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.fullBuild(ValBuilderJob.java:219)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.run(ValBuilderJob.java:178)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.runInWorkspace(ValBuilderJob.java:126)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.genuitec.eclipse.struts2 1 0 2015-03-04 16:46:50.732
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.genuitec.eclipse.struts2.model.Struts2Project.findPackageModels(Struts2Project.java:419)
+	at com.genuitec.eclipse.struts2.model.Struts2Project.getAllPackageModels(Struts2Project.java:352)
+	at com.genuitec.eclipse.struts2.model.Struts2XMLFile.getAllPackages(Struts2XMLFile.java:116)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2PackageSourceValidator.validatePackageDuplicaiton(Struts2PackageSourceValidator.java:64)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2PackageSourceValidator.validatePackagesDefinedIn(Struts2PackageSourceValidator.java:126)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2EditorSourceValidator.validatePackages(Struts2EditorSourceValidator.java:31)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2EditorSourceValidator.performValidationOn(Struts2EditorSourceValidator.java:45)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2SourceValidator.performValidationOn(Struts2SourceValidator.java:189)
+	at com.genuitec.eclipse.struts2.editor.source.validator.Struts2SourceValidator.validate(Struts2SourceValidator.java:256)
+	at org.eclipse.wst.validation.Validator$V2.validate(Validator.java:1159)
+	at org.eclipse.wst.validation.internal.ValManager.validate(ValManager.java:737)
+	at org.eclipse.wst.validation.internal.ValManager$1.visit(ValManager.java:697)
+	at org.eclipse.wst.validation.internal.ValManager.accept(ValManager.java:843)
+	at org.eclipse.wst.validation.internal.ValManager.validate(ValManager.java:701)
+	at org.eclipse.wst.validation.internal.ValBuilderJob$Visitor.visit(ValBuilderJob.java:301)
+	at org.eclipse.core.internal.resources.Resource$2.visit(Resource.java:106)
+	at org.eclipse.core.internal.resources.Resource$1.visitElement(Resource.java:65)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:82)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:86)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:86)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.iterate(ElementTreeIterator.java:127)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:75)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:104)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:88)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.fullBuild(ValBuilderJob.java:219)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.run(ValBuilderJob.java:178)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.runInWorkspace(ValBuilderJob.java:126)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

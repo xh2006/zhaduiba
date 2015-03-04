@@ -15,6 +15,7 @@ public class SearchHandler extends ActionSupport {
 	List<String> splitToSentences(String content){
 		List<String> sentences = new ArrayList<String>();
 		
+		// 返回句子列表
 		return sentences;
 	}
 	

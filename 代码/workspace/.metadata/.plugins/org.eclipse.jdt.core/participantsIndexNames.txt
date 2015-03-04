@@ -1,0 +1,9 @@
+INDEX VERSION 1.126
+E:\工作\zhadui\代码\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2182595168.index
+\zhaduiba\src
+E:\工作\zhadui\代码\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1166654243.index
+\zhaduiba\src
+E:\工作\zhadui\代码\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2933007965.index
+\zhaduiba\src
+E:\工作\zhadui\代码\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2102447326.index
+\zhaduiba\src
