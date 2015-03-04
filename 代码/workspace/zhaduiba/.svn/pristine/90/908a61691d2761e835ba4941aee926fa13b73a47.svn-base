@@ -1,0 +1,355 @@
+@charset "utf-8";
+/* CSS Document */
+/*================公共部分begin================*/
+*{
+	margin:0px;
+	padding:0px;
+}
+#main_all{
+	width:839px;
+	height:500px;
+	margin:0px auto;
+	background-color:#FFF;
+	}
+#main_title{
+	width:839px;
+	height:40px;
+	background:url(../images/personal_title_bg.jpg);
+	font-family:"微软雅黑";
+	font-size:16px;
+	line-height:40px;
+	}
+#main_center{
+	width:839px;
+	height:460px;
+}
+.error{
+	font-size:14px;
+	color:#F00;
+	width:150px;
+	text-align:left;
+	height:40px;
+	line-height:40px;
+	}
+/*============公共部分end==============*/
+/*------------已扎堆部分begin------------*/
+#main_center_left{
+	width:608px;
+	height:460px;
+	float:left;
+	}
+#main_left_content{
+	width:608px;
+	}
+#main_center_right{
+	width:231px;
+	height:460px;
+	float:left;
+	}
+#friend_title{
+	width:231px;
+	height:22px;
+	background:url(../images/friend_title.png);
+	font-size:14px;
+	font-family:"微软雅黑";
+	}
+#friend_search{
+	width:231px;
+	height:30px;
+	line-height:30px;
+	}
+.friend_search_input{
+	width:220px;
+	height:24px;
+	margin:0px auto;
+	margin-top:2px;
+	margin-left:4px;
+	font-size:14px;
+	}
+#friend_list{
+	width:231px;
+	}
+.nav_top_ul li{
+	list-style:none;
+	width:231px;
+	text-align:left;
+	font-family:"微软雅黑";
+	font-size:16px;
+	margin-left:10px;
+	}
+.nav_top_ul li img{
+	margin-right:10px;
+	border:none;
+	}
+.top_nav{
+	color:#000;
+	text-decoration:none;
+	}
+.sec_nav li{
+	list-style:none;
+	height:25px;
+	line-height:25px;
+	width:200px;
+	margin-left:20px;
+	}
+.sec_nav li img{
+	vertical-align:middle;
+	width:21px;
+	height:22px;
+	border:none;
+	}
+.sec_nav li a{
+	font-size:14px;
+	font-family:"微软雅黑";
+	text-decoration:none;
+	color:#333;
+	}
+.duier_content li{
+	list-style:none;
+	font-family:"微软雅黑";
+	color:#000;
+	}
+.content_title{
+	height:40px;
+	line-height:40px;
+	font-size:18px;
+	margin-left:20px;
+	color:#257527;
+	font-weight:600;
+	}
+.content_line{
+	height:2px;
+	line-height:2px;
+	background:url(../images/content_line.jpg);
+	background-repeat:no-repeat;
+	margin-left:5px;
+	}
+.content_duier{
+	font-size:14px;
+	line-height:20px;
+	margin-left:20px;
+	margin-right:10px;
+	font-family:宋体;
+	text-indent:2em;
+	}
+/*------------已扎堆部分end------------*/
+/*------------修改资料begin------------*/
+.update_ul li{
+	list-style:none;
+	float:left;
+	font-family:"微软雅黑";
+	height:40px;
+	line-height:40px;
+	}
+.position_div{
+	width:100%;
+	float:left;
+}
+.position_div input{
+	font-size:16px;
+	color:#333;
+	}
+.update_title{
+	width:100px;
+	text-align:right;
+	}
+/*------------修改资料end------------*/
+/*------------修改头像begin------------*/
+#upImage_all{
+	width:834px;
+	height:390px;
+	margin-left:5px;
+	}
+#upImage_left{
+	width:600px;
+	height:390px;
+	background-color:#CCC;
+	border-radius:5px;
+	float:left;
+	}
+#upImage_yulan{
+	width:590px;
+	height:380px;
+	background:url(../images/upImage_bg.png);
+	margin:0px auto;
+	margin-top:5px;
+	overflow:hidden;
+	}
+#upImage_right{
+	width:210px;
+	height:390px;
+	float:left;
+	overflow:hidden;
+}
+#headImageShowDiv{
+	width:150px;
+	height:150px;
+	margin:0px auto;
+	overflow:hidden;
+	}
+#uploadEmptyDiv{
+	width:210px;
+	height:180px;
+	font-size:18px;
+	color:#CCC;
+	line-height:100px;
+	text-align:center;
+	}
+#uploadBtnDiv{
+	width:210px;
+	height:60px;
+	font-size:16px;
+	line-height:60px;
+	text-align:center;
+	font-family:"微软雅黑";
+	}
+#uploadBtnDiv a{
+	text-decoration:none;
+	padding:6px 35px;
+	color:#FFF;
+	border-radius:10px;
+	background-color:#093;
+	}
+#upImageB{
+	width:150px;
+	height:150px;
+	}
+#xiabian{
+	width:839px;
+	height:50px;
+	}
+#yulantupian_file{
+	width:300px;
+	height:30px;
+	margin:0px auto;
+	margin-left:240px;
+	margin-top:10px;
+	}
+/*------------修改头像end------------*/
+/*------------安全中心begin------------*/
+.safe_li{
+	list-style:none;
+	width:820px;
+	height:123px;
+	border:1px solid #000;
+	margin-top:10px;
+	margin-left:10px;
+	}
+.safe_li .safe_mindimg{
+	width:214px;
+	height:123px;
+	margin-left:40px;
+	float:left;
+	}
+.safe_li .safe_infoMsg{
+	width:300px;
+	height:123px;
+	line-height:123px;
+	font-size:12px;
+	font-family:"宋体";
+	text-align:left;
+	float:left;
+	margin-left:20px;
+	}
+.safe_li .safe_upBtn{
+	width:150px;
+	height:123px; 
+	line-height:123px;
+	float:right;
+	text-align:center;
+	}
+.safe_upBtn img{
+	margin-top:48px;
+	}
+/*------------安全中心end------------*/
+/*------------修改密码begin------------*/
+.u_pwd_splDiv{
+	height:40px;
+	}
+.u_pwd_splDiv ul li{
+	list-style:none;
+	float:left;
+	height:40px;
+	line-height:40px;
+	font-family:"微软雅黑";
+	font-size:16px;
+	}
+.u_pwd_splDiv .first_li{
+	width:150px;
+	text-align:right;
+	}
+.u_pwd_splDiv .sec_li{
+	width:300px;
+	text-align:left;
+	}
+.sec_li input{
+	width:260px;
+	height:26px;
+}
+/*------------修改密码end------------*/
+/*---------------个人资料------------------*/
+.bg{
+	background:url(../images/personal_details_bg1.jpg);
+	background-repeat:no-repeat;
+	}
+#pInfo_top{
+	width:839px;
+	height:150px;
+}
+#pInfo_headImage{
+	width:169px;
+	height:150px;
+	float:left;
+	overflow:hidden;
+	}
+#pInfo_headImage img{
+	width:150px;
+	height:150px;
+	}
+#pInfo_topInfo{
+	width:670px;
+	height:150px;
+	float:left;
+	}
+.pInfo_spDiv ul li{
+	list-style:none;
+	float:left;
+	height:35px;
+	line-height:35px;
+	font-family:"微软雅黑";
+	}
+.pInfo_spDiv .first_li{
+	width:100px;
+	text-align:right;	
+	font-size:16px;
+}
+.pInfo_spDiv .sec_li{
+	width:200px;
+	text-align:left;	
+	font-size:16px;
+}
+#pInfo_center{
+	width:839px;
+	height:300px;
+	}
+.pInfo_center_spDiv{
+	float:left;
+	padding-bottom: 3px;
+}
+.pInfo_center_spDiv ul li{
+	list-style:none;
+	float:left;
+	line-height:30px;
+	font-family:"微软雅黑";
+	}
+.pInfo_center_spDiv .first_li{
+	width:150px;
+	text-align:right;
+	font-size:16px;
+}
+.pInfo_center_spDiv .sec_li{
+	width:600px;
+	text-align:left;	
+	font-size:16px;
+	line-height:30px;
+}

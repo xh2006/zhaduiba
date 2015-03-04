@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="zhaduiba">
+        <wb-resource deploy-path="/" source-path="/WebRoot"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_configFiles"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_Android"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_common"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_front"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_bg"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_personal"/>
+        <property name="context-root" value="/zhaduiba"/>
+        <property name="java-output-path" value="/zhaduiba/WebRoot/WEB-INF/classes"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>密码强度校验</title>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<style type="text/css">
+*{
+	margin:0px;
+	padding:0px;
+	}
+body{
+	font-size:12px; 
+	font-family:Arial, Helvetica, sans-serif;
+	}
+input{
+	float:left;
+	font-size:12px;
+	width:150px;
+	font-family:Arial, Helvetica, sans-serif;
+	border:1px solid #ccc;
+	padding:3px;
+	}
+input.correct{
+	border:2px solid green;
+	}
+input.error{
+	border:2px solid red;
+	}
+#tips{
+	float:left;
+	margin:2px 0 0 20px;
+	}
+#tips span{
+	float:left;
+	width:50px;
+	height:20px;
+	color:#FFF;
+	overflow:hidden;
+	background:#CCC;
+	margin-right:2px;
+	line-height:20px;
+	text-align:center;
+	}
+#tips .s1{ background:#f30;}
+#tips .s2{ background:#fc0;}
+#tips .s3{ background:#cc0;}
+#tips .s4{ background:#090;}
+</style>
+</head>
+<body>
+<input id="password_input" type="text" value="" maxlength="16" />
+<div id="tips">
+	<span id="1"></span>
+    <span id="2"></span>
+    <span id="3"></span>
+    <span id="4"></span>
+</div>
+<script type="text/javascript">
+$(function(){
+	var str=["弱","中","强","很强"];
+	$("#password_input").keyup(function(e) {
+        var $value=$(this).val();
+		var remark=check_password($value);
+		$("#tips span").each(function(index, element) {
+			$(this).attr("class","");
+			$(this).text("");
+           	if(remark){
+				$("#tips span").eq(remark-1).addClass("s"+remark);
+				$("#tips span").eq(remark-1).text(str[remark-1]);
+			};
+        });
+    });
+	function check_password($value){
+		var modes=0;
+		if($value.length<6){
+			return modes;
+		}
+		if(/\d/.test($value)){
+			modes++;
+		}
+		if(/[a-z]/.test($value)){
+			modes++;
+		}
+		if(/[A_Z]/.test($value)){
+			modes++;
+		}
+		if(/\W/.test($value)){
+			modes++;
+		}
+		switch(modes){
+			case 1:
+				return 1;
+				break;
+			case 2:
+				return 2;
+				break;
+			case 3:
+				return 3;
+				break;
+			case 4:
+				return 4;
+				break;
+		}
+	}
+});
+</script>
+</body>
+</html>

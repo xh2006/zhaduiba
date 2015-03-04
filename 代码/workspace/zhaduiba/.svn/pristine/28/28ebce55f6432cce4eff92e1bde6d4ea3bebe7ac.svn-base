@@ -1,0 +1,78 @@
+package com.zhadui.front.dao.impl;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+
+import com.zhadui.common.entity.UserInfo;
+import com.zhadui.common.entity.UserShowInfo;
+import com.zhadui.front.dao.UserInfoDao;
+
+public class UserInfoDaoImpl extends SqlSessionDaoSupport implements UserInfoDao {
+
+	@Override
+	public UserInfo getUserById(int id) {
+		return getSqlSession().selectOne("com.zhadui.front.dao.impl.UserInfoManage.getUserInfoById",id);
+	}
+
+	@Override
+	public UserInfo getUserByPhoneNumber(String phoneNumber) {
+		return getSqlSession().selectOne("com.zhadui.front.dao.impl.UserInfoManage.getUserInfoByPhoneNumber", phoneNumber);
+	}
+	
+	@Override
+	public int isExisted(String name, String value) {
+		Map<String, String>param = new HashMap<String, String>();
+		param.put("item_name", name);
+		param.put("item_value", value);
+		int n = getSqlSession().selectOne("com.zhadui.front.dao.impl.UserInfoManage.isExisted", param);
+	
+		if(n > 1){
+			// ¼ÇÂ¼ÈÕÖ¾
+		}
+		return n;
+	}
+
+	@Override
+	public void insertUserInfo(UserInfo userInfo) {
+		getSqlSession().insert("com.zhadui.front.dao.impl.UserInfoManage.insertUserInfo", userInfo);		
+	}
+
+	@Override
+	public void updateUserInfo() {
+				
+	}
+
+	@Override
+	public void updateUserlastLoginTime(int id, Date loginTime) {
+		Map<String, Object>param = new HashMap<String, Object>();
+		param.put("id", id);
+		param.put("userLastLoginTime", loginTime);
+		getSqlSession().update("com.zhadui.front.dao.impl.UserInfoManage.updateUserLastLoginTimeById", param);		
+	}
+
+	@Override
+	public void register(UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		getSqlSession().insert("com.zhadui.front.dao.impl.UserInfoManage.register", userInfo);
+	}
+
+	@Override
+	public UserInfo login(String phoneNumber, String password) {
+		Map<String, String>param = new HashMap<String, String>();
+		param.put("phoneNumber", phoneNumber);
+		param.put("password", password);
+
+		return getSqlSession().selectOne("com.zhadui.front.dao.impl.UserInfoManage.login", param);
+	}
+
+	@Override
+	public UserShowInfo getUserShowInfoByUserId(int id) {
+		return getSqlSession().selectOne("com.zhadui.front.dao.impl.UserInfoManage.getUserShowInfoByUserId",id);
+	}
+
+
+
+}

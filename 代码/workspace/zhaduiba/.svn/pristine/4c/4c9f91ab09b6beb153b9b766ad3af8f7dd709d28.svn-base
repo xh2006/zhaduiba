@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.custom.i18n.resources" value="message" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<package name="AndroidPackage" namespace="/" extends="struts-default">
+		<action name="login_android" class="loginActionA" method="android_login"></action>
+		<action name="getTheme_android" class="duierclassActionA" method="android_getTheme"></action>
+		<action name="getADListByCId_android" class="duierclassImageActionA" method="android_getADListByCId"></action>
+		<action name="getDListByCId_android" class="duierInfoActionA" method="android_getDListByCId"></action>
+		<action name="getDuierInfo_android" class="duierInfoActionA" method="android_getDuierInfo"></action>
+		<action name="getUserIfInOrUpdate_android" class="duierStatusActionA" method="android_getUserIfStatusAndUpdate"></action>
+		<action name="getDuierMessageList_android" class="duierChatInfoActionA" method="android_getDuierMessageList"/>
+		<action name="addMessage_android" class="duierChatInfoActionA" method="android_addMessage"></action>
+		<action name="getDuierUndertakeInfo_android" class="duierUndertakeInfoActionA" method="android_getDuierUndertakeInfo"></action>
+		<action name="getDuierUndertakeList_android" class="duierUndertakeInfoActionA" method="android_getDuierUndertakeList"></action>
+		<action name="appointDuierUndertake_android" class="duierUndertakeInfoActionA" method="android_appointDuierUndertake"></action>
+		<action name="addDuierUndertake_android" class="duierUndertakeInfoActionA" method="android_addDuierUndertake"></action>
+		<action name="getUserInfo_android" class="userInfoActionA" method="android_getUserInfo"></action>
+		<action name="updateFriends_android" class="userInfoActionA" method="android_updateFriends"></action>
+		<action name="searchDuierList_android" class="duierInfoActionA" method="android_searchDuierList"></action>
+		<action name="updateDuierStatus_android" class="duierInfoActionA" method="android_updateDuierStatus"></action>
+		<action name="getAppVersionAndDownload_android" class="appInfoActionA" method="android_getAppVersionAndDownload"></action>
+		<action name="getValidCode_android" class="registerActionA" method="android_loadValidCode"></action>
+		<action name="register_android" class="registerActionA" method="android_register"></action>
+	</package>
+</struts>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<!DOCTYPE mapper  
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+	<mapper namespace="com.zhadui.android.dao.impl.A_duierClassManage">
+		<resultMap type="DuierClass" id="duierClassResult">
+			<id column="duierClass_id" property="duierClassId"/>
+			<result column="duierClass_name" property="duierClassName"/>
+			<result column="duierClass_father_id" property="duierClassFatherId"/>
+			<result column="duierClass_layer" property="duierClassLayer"/>
+			<result column="duierClass_hot_level" property="duierClassHotLevel"/>
+			<result column="duierClass_note" property="duierClassNote"/>
+			<result column="duierClass_ext1" property="duierClassExt1"/>
+			<result column="duierClass_ext2" property="duierClassExt2"/>
+		</resultMap>
+		<select id="getAllTopDuierClass" resultMap="duierClassResult">
+			select * from duierClass where duierClass_father_id=0 order by duierClass_layer
+		</select>
+		
+		<select id="getDCNameById" parameterType="int" resultType="String">
+			select duierClass_name from duierClass where duierClass_id=#{duierClassId}
+		</select>
+		
+		<select id="queryDuierClassForPage" parameterType="java.util.Map" resultMap="duierClassResult">
+			select * from duierClass limit #{startRow},#{endRow}
+		</select>
+		
+		<select id="queryTotalPage" resultType="int">
+			select count(*) from duierClass
+		</select>
+	</mapper> 

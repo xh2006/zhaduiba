@@ -1,0 +1,50 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link type="text/css" rel="stylesheet" href="css/personal_content.css" />
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+});
+</script>
+</head>
+<body>
+<div id="main_all">
+	<div id="main_title">&nbsp;安全中心</div>
+    <div id="main_center">
+    	<div style="height:10px;"></div>
+    	<ul>
+        	<li class="safe_li">
+            	<div class="safe_mindimg" style="margin-left:41px;"><img src="images/safe_pwd.png" /></div>
+                <div class="safe_infoMsg">建议你定期修改密码以保护账号安全</div>
+                <div class="safe_upBtn">
+                	<a href="update_pwd.jsp"><img style="border:none;" src="images/update_bnt.png" /></a>
+                </div>
+            </li>
+            <li class="safe_li">
+            	<div class="safe_mindimg" style="margin-left:37px;"><img src="images/safe_email.png" /></div>
+                <div class="safe_infoMsg">使用邮箱加强账户安全</div>
+                 <div class="safe_upBtn">
+                	<a href="update_email.jsp"><img style="border:none;" src="images/update_bnt.png" /></a>
+                </div>
+            </li>
+            <li class="safe_li">
+            	<div class="safe_mindimg"><img src="images/safe_phone.png" /></div>
+                <div class="safe_infoMsg">绑定手机号码方便您找回密码</div>
+                 <div class="safe_upBtn">
+                	<a href="toUpdatePhone"><img style="border:none;" src="images/update_bnt.png" /></a>
+                </div>
+            </li>
+        </ul>
+	</div>
+</div>
+</body>
+</html>

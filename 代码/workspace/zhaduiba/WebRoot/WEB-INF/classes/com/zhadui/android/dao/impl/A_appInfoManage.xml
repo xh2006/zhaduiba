@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<!DOCTYPE mapper  
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+	<mapper namespace="com.zhadui.android.dao.impl.A_appInfoManage">
+		<resultMap type="AppInfo" id="AppInfoResult">
+			<id column="appInfo_id" property="appInfoId"/>
+			<result column="appInfo_name" property="appInfoName"/>
+			<result column="appInfo_versionName" property="appInfoVersionName"/>
+			<result column="appInfo_versionCode" property="appInfoVersionCode"/>
+			<result column="appInfo_updateTime" property="appInfoUpdateTime"/>
+			<result column="appInfo_summary" property="appInfoSummary"/>
+			<result column="appInfo_downloadUrl" property="appInfoDownloadUrl"/>
+			<result column="appInfo_qr_code" property="appInfoQrCode"/>
+			<result column="appInfo_ext1" property="appInfoExt1"/>
+			<result column="appInfo_ext2" property="appInfoExt2"/>
+		</resultMap>
+		<select id="getMaxCodeVersionAppInfo" resultMap="AppInfoResult">
+			select * from appInfo where appInfo.appInfo_versionCode=(select max(appInfo_versionCode) from appInfo)
+		</select>
+	</mapper> 

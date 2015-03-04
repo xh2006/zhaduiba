@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link type="text/css" rel="stylesheet" href="css/personal_content.css" />
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#send_msg").click(function(e) {
+        $("#update_phone_1").hide();
+		$("#update_phone_2").show();
+    });
+	$("#phone_v_ok").click(function(e) {
+        $("#update_phone_2").hide();
+		$("#update_phone_3").show();
+    });
+});
+</script>
+</head>
+<body>
+<div id="main_all">
+	<div id="main_title">&nbsp;安全中心</div>
+    <div id="main_center">
+    	<div style="height:20px;"></div>
+        <div style="width:839px;">
+        	<div style="width:800px; height:40px; line-height:40px; font-size:18px; font-family:'微软雅黑'; text-align:left; margin-left:20px;">修改手机</div>
+            <div id="update_phone_1" style="width:670px; margin:0px auto;">
+            	<div style="width:670px; height:45px;">
+                	<img src="images/update_phone_1.png" />
+                </div>
+                <div>
+                	<div class="u_pwd_splDiv">
+                        <ul>
+                            <li class="first_li">新手机号码：</li>
+                            <li class="sec_li"><input type="text" /></li>
+                            <li class="error" style="font-size:14px;">请输入新手机号</li>
+                        </ul>
+                    </div>
+                    <div class="u_pwd_splDiv">
+                        <ul>
+                            <li class="first_li">登录密码：</li>
+                            <li class="sec_li"><input type="password" /></li>
+                            <li class="error" style="font-size:14px;">请输入登录密码</li>
+                        </ul>
+                    </div>
+                    <div class="u_pwd_splDiv" style="height:80px;">
+                        <ul>
+                            <li style="width:400px; height:80px; line-height:80px; text-align:right;"><a id="send_msg" href="javascript:void(0);"><img style="border:none; vertical-align:middle;" src="images/send_msg.png" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div id="update_phone_2" style="width:670px; margin:0px auto; display:none;">
+            	<div style="width:670px; height:45px;">
+                	<img src="images/update_phone_2.png" />
+                </div>
+                <div>
+                	<div class="u_pwd_splDiv">
+                        <ul>
+                            <li class="first_li">验证码：</li>
+                            <li class="sec_li"><input type="text" /></li>
+                            <li class="error" style="font-size:14px;">请输入收到的验证码</li>
+                        </ul>
+                    </div>
+                    <div class="u_pwd_splDiv" style="height:80px;">
+                        <ul>
+                            <li style="width:400px; height:80px; line-height:80px; text-align:right;"><a id="phone_v_ok" href="javascript:void(0);"><img style="border:none; vertical-align:middle;" src="images/phone_confirm.png" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div id="update_phone_3" style="width:670px; margin:0px auto; display:none;">
+            	<div style="width:670px; height:45px;">
+                	<img src="images/update_phone_3.png" />
+                </div>
+                <div style="width:362px; height:171px; margin:0px auto; margin-top:50px;">
+                	<img src="images/phone_ok.jpg" />
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+</body>
+</html>

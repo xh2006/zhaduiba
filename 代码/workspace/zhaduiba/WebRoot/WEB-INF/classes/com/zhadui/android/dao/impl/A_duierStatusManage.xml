@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<!DOCTYPE mapper  
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhadui.android.dao.impl.A_duierStatusManage">
+	<resultMap type="DuierStatus" id="duierStatusResult">
+		<id column="duierStatus_id" property="duierStatusId" />
+		<result column="duierStatus_ext1" property="duierStatusExt1" />
+		<result column="duierStatus_ext2" property="duierStatusExt2" />
+		<association property="duierStatusDuier" javaType="DuierInfo">
+			<id column="duierInfo_id" property="duierInfoId" />
+			<result column="duierInfo_create_time" property="duierInfoCreateTime" />
+			<result column="duierInfo_name" property="duierInfoName" />
+			<result column="duierInfo_start_time" property="duierInfoStartTime" />
+			<result column="duierInfo_end_time" property="duierInfoEndTime" />
+			<result column="duierInfo_update_time" property="duierInfoUpdateTime" />
+			<result column="duierInfo_area" property="duierInfoArea" />
+			<result column="duierInfo_location" property="duierInfoLocation" />
+			<result column="duierInfo_Lowlimit_person" property="duierInfoLowlimitPerson" />
+			<result column="duierInfo_Uplimit_person" property="duierInfouplimitPerson" />
+			<result column="duierInfo_activity_introduction" property="duierInfoActivityIntroduction" />
+			<result column="duierInfo_activity_status" property="duierInfoActivityStatus" />
+			<result column="duierInfo_need_undertaker" property="duierInfoNeedUndertaker" />
+			<result column="duierInfo_location_long" property="duierInfoLocationLong" />
+			<result column="duierInfo_location_lat" property="duierInfoLocationLat" />
+			<result column="duierInfo_activity_fee" property="duierInfoActivityFee" />
+			<result column="duierInfo_ext1" property="duierInfoExt1" />
+			<result column="duierInfo_ext2" property="duierInfoExt2" />
+			<association property="duierInfoCreator" javaType="UserInfo">
+				<id column="userInfo_id" property="userInfoId" />
+				<result column="userInfo_name" property="userInfoName" />
+				<result column="userInfo_age" property="userInfoAge" />
+				<result column="userInfo_sex" property="userInfoSex" />
+				<result column="userInfo_headImage" property="userInfoHeadImage" />
+				<result column="userInfo_account" property="userInfoAccount" />
+				<result column="userInfo_password" property="userInfoPassword" />
+				<result column="userInfo_email" property="userInfoEmail" />
+				<result column="userInfo_phone_number" property="userInfoPhoneNumber" />
+				<result column="userInfo_last_login_time" property="userInfoLastLoginTime" />
+				<result column="userInfo_experiencePoints" property="userInfoExperiencePoints" />
+				<result column="userInfo_credits" property="userInfoCredits" />
+				<result column="userInfo_location_long" property="userInfoLocationLong" />
+				<result column="userInfo_location_lat" property="userInfoLocationLat" />
+				<result column="userInfo_srcIP" property="userInfoSrcIp" />
+				<result column="userInfo_ext1" property="userInfoExt1" />
+				<result column="userInfo_ext2" property="userInfoExt2" />
+				<association property="userInfoDesignation" javaType="UserDesignation">
+					<id column="userDesignation_id" property="userDesignationId" />
+					<result column="userDesignation_content" property="userDesignationContent" />
+					<result column="userDesignation_ext1" property="userDesignationExt1" />
+					<result column="userDesignation_ext2" property="userDesignationExt2" />
+				</association>
+			</association>
+			<association property="duierInfoClass" javaType="DuierClass">
+				<id column="duierClass_id" property="duierClassId" />
+				<result column="duierClass_name" property="duierClassName" />
+				<result column="duierClass_father_id" property="duierClassFatherId" />
+				<result column="duierClass_layer" property="duierClassLayer" />
+				<result column="duierClass_hot_level" property="duierClassHotLevel" />
+				<result column="duierClass_note" property="duierClassNote" />
+				<result column="duierClass_ext1" property="duierClassExt1" />
+				<result column="duierClass_ext2" property="duierClassExt2" />
+			</association>
+		</association>
+		<association property="duierStatusFollower" javaType="UserInfo">
+			<id column="userInfo_id" property="userInfoId" />
+			<result column="userInfo_name" property="userInfoName" />
+			<result column="userInfo_age" property="userInfoAge" />
+			<result column="userInfo_sex" property="userInfoSex" />
+			<result column="userInfo_headImage" property="userInfoHeadImage" />
+			<result column="userInfo_account" property="userInfoAccount" />
+			<result column="userInfo_password" property="userInfoPassword" />
+			<result column="userInfo_email" property="userInfoEmail" />
+			<result column="userInfo_phone_number" property="userInfoPhoneNumber" />
+			<result column="userInfo_last_login_time" property="userInfoLastLoginTime" />
+			<result column="userInfo_experiencePoints" property="userInfoExperiencePoints" />
+			<result column="userInfo_credits" property="userInfoCredits" />
+			<result column="userInfo_location_long" property="userInfoLocationLong" />
+			<result column="userInfo_location_lat" property="userInfoLocationLat" />
+			<result column="userInfo_srcIP" property="userInfoSrcIp" />
+			<result column="userInfo_ext1" property="userInfoExt1" />
+			<result column="userInfo_ext2" property="userInfoExt2" />
+			<association property="userInfoDesignation" javaType="UserDesignation">
+				<id column="userDesignation_id" property="userDesignationId" />
+				<result column="userDesignation_content" property="userDesignationContent" />
+				<result column="userDesignation_ext1" property="userDesignationExt1" />
+				<result column="userDesignation_ext2" property="userDesignationExt2" />
+			</association>
+		</association>
+		<association property="duierStatusParticipant" javaType="UserInfo">
+			<id column="userInfo_id" property="userInfoId" />
+			<result column="userInfo_name" property="userInfoName" />
+			<result column="userInfo_age" property="userInfoAge" />
+			<result column="userInfo_sex" property="userInfoSex" />
+			<result column="userInfo_headImage" property="userInfoHeadImage" />
+			<result column="userInfo_account" property="userInfoAccount" />
+			<result column="userInfo_password" property="userInfoPassword" />
+			<result column="userInfo_email" property="userInfoEmail" />
+			<result column="userInfo_phone_number" property="userInfoPhoneNumber" />
+			<result column="userInfo_last_login_time" property="userInfoLastLoginTime" />
+			<result column="userInfo_experiencePoints" property="userInfoExperiencePoints" />
+			<result column="userInfo_credits" property="userInfoCredits" />
+			<result column="userInfo_location_long" property="userInfoLocationLong" />
+			<result column="userInfo_location_lat" property="userInfoLocationLat" />
+			<result column="userInfo_srcIP" property="userInfoSrcIp" />
+			<result column="userInfo_ext1" property="userInfoExt1" />
+			<result column="userInfo_ext2" property="userInfoExt2" />
+			<association property="userInfoDesignation" javaType="UserDesignation">
+				<id column="userDesignation_id" property="userDesignationId" />
+				<result column="userDesignation_content" property="userDesignationContent" />
+				<result column="userDesignation_ext1" property="userDesignationExt1" />
+				<result column="userDesignation_ext2" property="userDesignationExt2" />
+			</association>
+		</association>
+	</resultMap>
+	<parameterMap type="DuierStatus" id="duierStatusParame"></parameterMap>
+	<select id="countParticipantByDId" parameterType="BigInteger"
+		resultType="int">
+		select count(d.duierStatus_participant_id) from duierStatus
+		d where d.duierStatus_participant_id is not null and
+		d.duierStatus_duier_Id=#{duierId}
+	</select>
+	<select id="userIfInDuier" parameterType="java.util.Map"
+		resultType="int">
+		select count(duierStatus_id) from duierStatus where
+		duierStatus_duier_id=#{duierId} and
+		duierStatus_participant_id=#{userId}
+	</select>
+	<insert id="addDuierStatus" parameterType="DuierStatus">
+		insert into
+		duierStatus(duierStatus_duier_Id,duierStatus_follower_id,duierStatus_participant_id,duierStatus_ext1,duierStatus_ext2)
+		values(#{duierStatusDuier.duierInfoId},#{duierStatusFollower.userInfoId},#{duierStatusParticipant.userInfoId},#{duierStatusExt1},#{duierStatusExt2})
+	</insert>
+	<update id="updateDuierStatus" parameterType="DuierStatus">
+		update duierStatus
+		set
+		duierStatus_duier_Id=#{duierStatusDuier},duierStatus_follower_id=#{duierStatusFollower},duierStatus_participant_id=#{duierStatusParticipant},duierStatus_ext1=#{duierStatusExt1},duierStatus_ext2=#{duierStatusExt2}
+		where duierStatus_id=#{duierStatusId}
+	</update>
+	<delete id="deleteDuierStatusById" parameterType="int">
+		delete from
+		duierStatus where duierStatus_id=#{duierStatusId}
+	</delete>
+	<select id="getDuierStatusByUIdAndDId" parameterType="java.util.Map"
+		resultMap="duierStatusResult">
+		select * from duierStatus s,duierInfo i,userInfo u where
+		s.duierStatus_duier_Id=i.duierInfo_id and
+		s.duierStatus_participant_id=u.userInfo_id and
+		s.duierStatus_participant_id=#{userId} and
+		s.duierStatus_duier_Id=#{duierId}
+	</select>
+	<select id="countZhaduiNumByUId" parameterType="int" resultType="int">
+		select count(*) from duierStatus where
+		duierStatus.duierStatus_participant_id=#{userId}
+	</select>
+</mapper> 

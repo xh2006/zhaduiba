@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<!DOCTYPE mapper  
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhadui.front.dao.impl.UserInfoManage">
+	<resultMap type="UserInfo" id="userResult">
+		<id column="userInfo_id" property="userInfoId"/>
+		<result column="userInfo_name" property="userInfoName"/>
+		<result column="userInfo_age" property="userInfoAge"/>
+		<result column="userInfo_sex" property="userInfoSex"/>
+		<result column="userInfo_headImage" property="userInfoHeadImage"/>
+		<result column="userInfo_account" property="userInfoAccount"/>
+		<result column="userInfo_password" property="userInfoPassword"/>
+		<result column="userInfo_email" property="userInfoEmail"/>
+		<result column="userInfo_phone_number" property="userInfoPhoneNumber"/>
+		<result column="userInfo_last_login_time" property="userInfoLastLoginTime"/>
+		<result column="userInfo_experiencePoints" property="userInfoExperiencePoints"/>
+		<result column="userInfo_credits" property="userInfoCredits"/>
+		<result column="userInfo_location_long" property="userInfoLocationLong"/>
+		<result column="userInfo_location_lat" property="userInfoLocationLat"/>
+		<result column="userInfo_srcIP" property="userInfoSrcIp"/>
+		<result column="userInfo_ext1" property="userInfoExt1"/>
+		<result column="userInfo_ext2" property="userInfoExt2"/>
+		<association property="userInfoDesignation" javaType="UserDesignation">
+			<id column="userDesignation_id" property="userDesignationId"/>
+			<result column="userDesignation_content" property="userDesignationContent" />
+			<result column="userDesignation_ext1" property="userDesignationExt1" />
+			<result column="userDesignation_ext2" property="userDesignationExt2" />
+		</association>
+	</resultMap>
+		
+	
+	<select id="getUserInfoById" parameterType="int" resultMap="userResult">
+		select * from userInfo where userInfo_id = #{id}
+	</select>
+	<select id="getUserInfoByPhoneNumber" parameterType="String" resultMap="userResult">
+		select * from userInfo where userInfo_phone_number = #{userInfoPhoneNumber}
+	</select>
+	<select id="isExisted" parameterType="map" resultType="int">
+		<!-- select count(*) from userInfo where #{item_name} = #{item_value}  -->
+		select count(*) from userInfo where userInfo_phone_number = #{item_value}
+	</select>
+	<select id="login" parameterType="map" resultMap="userResult">
+		select userInfo_id from userInfo where userInfo_phone_number = #{phoneNumber} and userInfo_password = #{password}
+	</select>
+	
+	<select id="getUserShowInfoByUserId" parameterType="int" resultType="UserShowInfo">
+		select userInfo_name as userInfoName,
+			userInfo_sex as userInfoSex,
+			userInfo_headImage as userInfoHeadImage,
+			userInfoDetail_vocation as userInfoDetailVocation,
+			userInfoDetail_signal as userInfoDetailSignal from userInfo,
+			userInfoDetail where userInfo_id = #{id} and userInfoDetail_id = userInfo_id
+	</select>
+	
+	<insert id="register" parameterType="UserInfo">
+		insert into userInfo(userInfo_name,
+			userInfo_designationId,
+			userInfo_account,
+			userInfo_password,
+			userInfo_phone_number,
+			userInfo_last_login_time,
+			userInfo_experiencePoints,
+			userInfo_credits,
+			userInfo_srcIP) VALUES (#{userInfoName},
+			1,					
+			#{userInfoAccount},
+			#{userInfoPassword},
+			#{userInfoPhoneNumber},
+			#{userInfoLastLoginTime},
+			#{userInfoExperiencePoints},
+			#{userInfoCredits},
+			#{userInfoSrcIp}
+			)
+	</insert>
+	
+	<insert id="insertUserInfo" parameterType="UserInfo">
+		insert into
+	    	
+	</insert>
+	<update id="updateUserRegInfoById">
+		update userInfo set
+			userInfo_name = #{userInfoName},
+			userInfo_password = #{userInfoPassword},
+			userInfo_email = #{userInfoEmail},
+			userInfo_phone_number = #{userInfoPhoneNumber}
+		where userInfo_id = #{id}
+	</update>
+	<update id="updateUserLastLoginTimeById" parameterType="map">
+		update userInfo set 
+			userInfo_last_login_time = #{userLastLoginTime}
+		where userInfo_id = #{id}			
+	</update>
+	<update id="updateUserXXXInfoById">
+		update userInfo set
+			userInfo_level = #{userInfoLevel},
+			userInfo_experiencePoints = #{userInfoExperiencePoints},
+			userInfo_credits = #{userInfoCredits},	
+		where userInfo_id = #{id}
+	</update>
+</mapper>

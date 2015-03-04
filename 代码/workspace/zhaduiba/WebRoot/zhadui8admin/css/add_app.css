@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0px;
+	padding:0px;
+	}
+#add_app{
+	width:700px;
+	margin:0px auto;
+	}
+#add_app_top{
+	width:700px;
+	}
+.add_app_top li{
+	list-style:none;
+	float:left;
+	height:50px;
+	line-height:50px;
+	font-family:"微软雅黑";
+	font-size:16px;
+	}
+.add_app_top .app_title{
+	width:150px;
+	text-align:right;
+	}
+.add_app_top .app_input{
+	width:350px;
+	text-align:left;
+	}
+.app_error{
+	width:200px;
+	text-align:left;
+	color:red;
+	font-size:13px;
+	}
+.inputText{
+	width:300px;
+	font-size:16px;
+	height:26px;
+	}
+.must{
+	color:#F00;
+	margin-left:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	}
+.btn_a{
+	padding:7px 20px; 
+	margin-right:20px; 
+	background-color:#69F; 
+	border-radius:5px; 
+	color:#FFF; 
+	font-size:16px; 
+	font-family:微软雅黑;
+	text-decoration:none;
+	font-weight:bolder;
+	}
+

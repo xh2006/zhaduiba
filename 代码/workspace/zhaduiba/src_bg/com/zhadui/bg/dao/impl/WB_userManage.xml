@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<!DOCTYPE mapper  
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+	<mapper namespace="com.zhadui.bg.dao.impl.WB_userManage">
+		<resultMap type="User" id="usersResult">
+			<id column="user_id" property="userId"/>
+			<result column="user_account" property="userAccount"/>
+			<result column="user_pwd" property="userPwd"/>
+			<result column="user_privilege" property="privilege"/>
+			<result column="user_loginIp" property="userLoginIp"/>
+			<result column="user_loginTime" property="userLoginTime"/>
+			<result column="user_ext1" property="userExt1"/>
+			<result column="user_ext2" property="userExt2"/>
+		</resultMap>
+		<select id="getUserByAccountAndPwd" parameterType="map" resultMap="usersResult">
+			select * from user where user.user_account=#{account} and user.user_pwd=#{pwd}
+		</select>
+		<update id="updateLoginIpAndTime" parameterType="map">
+			update user set user.user_loginIp=#{loginIp},user.user_loginTime=#{loginTime} where user.user_id=#{userId}
+		</update>
+		<select id="getUserPasswordById" parameterType="int" resultType="String">
+			select user.user_pwd from user where user.user_id=#{userId}
+		</select>
+		<update id="updatePasswordById" parameterType="Map">
+			update user set user.user_pwd=#{password} where user.user_id=#{userId}
+		</update>
+		<select id="getUserById" parameterType="int" resultMap="usersResult">
+			select * from user where user.user_id=#{userId}
+		</select>
+	</mapper> 

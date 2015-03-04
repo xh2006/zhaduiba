@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.custom.i18n.resources" value="message" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<package name="WebFrontPackage" namespace="/" extends="struts-default">
+		<action name="toIndex" class="DuierInfoManage_frontAction" method="getDuierShowInfo">
+			<result name="indexPage">index.jsp</result>
+		</action>
+		<action name="getMoreDuierInfo_front" class="DuierInfoManage_frontAction" method="getMoreDuierShowInfos">
+		</action>
+		<action name="category" class="DuierInfoManage_frontAction" method="getDuierShowInfosByClassId">
+			<result name="categoryPage">category.jsp</result>
+		</action>
+		<action name="getMoreDuierInfoByClassId_front" class="DuierInfoManage_frontAction" method="getMoreDuierShowInfosByClassId">
+		</action>
+		<action name="duierDetail" class="DuierInfoManage_frontAction" method="getDuierDetail">
+			<result name="duierDetailPage">duierDetail.jsp</result>
+		</action>
+		
+		<action name="login" class="Login_frontAction" method="loginPage">
+			<result name="loginPage">login.jsp</result>
+		</action>
+		<action name="login_web" class="Login_frontAction" method="login">
+			<result name="logined" type="redirectAction" >toIndex</result>
+			<result name="input" type="dispatcher">login.jsp</result>
+		</action>
+		<action name="logout_web" class="Login_frontAction" method="logout">
+			<result name="logouted" type="redirectAction">toIndex</result>
+		</action>
+		<!-- 
+		<action name="testVerifyCode" class="Login_frontAction" method="verifyCode"></action>
+		 -->
+		<action name="register" class="Register_frontAction" method="toRegisterPage">
+			<result name="registerPage">register.jsp</result>
+		</action>
+		<action name="register_web_front" class="Register_frontAction" method="register"></action>
+		<action name="isExisted" class="Register_frontAction" method="isUsed"></action>
+		<action name="uploadImage" class="uploadImageHandler" method="uploadImage">
+			<result name="suc">/fillingInfo.jsp</result>
+		</action>
+		<action name="fillingInfo" class="Register_frontAction" method="toFillingInfoPage">
+			<result name="fillingInfoPage">/fillingInfo.jsp</result>
+		</action>
+		<action name="saveProfile" class="Register_frontAction" method="saveProfile">
+			<result name="toIndexPage" type="redirectAction">toIndex</result>
+		</action>
+		<action name="comment" class="DuierInfoManage_frontAction" method="comment"></action>
+		<action name="forgetPwd" class="" method=""></action>
+	</package>
+</struts>

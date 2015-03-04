@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0px;
+	padding:0px;
+	}
+body{
+	background-color:#FFF;
+}
+#header{
+	width:1000px;
+	height:122px;
+	margin:0px auto;
+	line-height:122px;
+	background:url(../images/head_bg.jpg);
+	}
+#header_logo{
+	width:85px;
+	height:122px;
+	margin-left:40px;
+	float:left;
+	}
+#header_logo img{
+	margin-top:45px;
+	}
+#header_logo_word{
+	width:270px;
+	height:122px;
+	margin-left:20px;
+	float:left;
+	}
+#header_logo_word img{
+	margin-top:60px;
+	}
+#header_closeDiv{
+	width:20px;
+	height:122px;
+	float:right;
+	}
+#header_closeDiv a{
+	text-decoration:none;
+	border:none;
+	}
+#header_closeDiv a img{
+	margin-top:5px;
+	border:none;
+	}
+#main{
+	width:1000px;
+	margin:0px auto;
+	}
+#main_left{
+	width:180px;
+	height:200px;
+	float:left;
+	}
+#main_left iframe{
+	width:180px;
+	margin:0px;
+	padding:0px;
+	border:none;
+	height:100%;
+	}
+#main_right{
+	width:820px;
+	float:left;
+	}
+#main_right_top{
+	width:820px;
+	height:37px;
+	background:url(../images/position.png);
+	}
+#position_title{
+	font-size:14px;
+	font-family:"微软雅黑";
+	line-height:37px;
+	margin-left:10px;
+	}
+#position_word{
+	font-size:14px;
+	font-family:"微软雅黑";
+	line-height:37px;
+	margin-left:10px;
+	}
+#main_right_center{
+	width:820px;
+	}
+#main_right_center iframe{
+	width:100%;
+	height:100%;
+	}

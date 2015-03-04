@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.custom.i18n.resources" value="message" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<package name="WebBgPackage" namespace="/zhadui8admin" extends="struts-default">
+		<interceptors>
+			<interceptor name="adminLoginInterceptor" class="com.zhadui.common.filter.AdminLoginInterceptor"></interceptor>
+			<interceptor-stack name="adminStack">
+				<interceptor-ref name="adminLoginInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="adminStack"></default-interceptor-ref>
+		<global-results>
+			<result name="adminLogin" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">adminToLogin</param>
+			</result>
+		</global-results>
+		
+		<action name="adminToIndex" class="adminLogin" method="adminToIndex">
+			<result name="adminToIndex">index.jsp</result>
+		</action>
+		<action name="adminQuit" class="adminLogin" method="adminQuit">
+			<result name="adminQuit" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">adminToLogin</param>
+			</result>
+		</action>
+		<action name="toThemesList" class="themeActionBg" method="toThemeList">
+			<result name="toThemeList">duier_class_list.jsp</result>
+		</action>
+		<action name="toAddTheme" class="themeActionBg" method="toAddTheme">
+			<result name="toAddTheme">add_duier_class.jsp</result>
+		</action>
+		<action name="addTheme" class="themeActionBg" method="addTheme">
+			<result name="addTheme" type="redirectAction">toThemesList</result>
+		</action>
+		<action name="toUpdateTheme" class="themeActionBg" method="toUpdateTheme">
+			<result name="toUpdateTheme">update_duier_class.jsp</result>
+		</action>
+		<action name="updateTheme" class="themeActionBg" method="updateTheme">
+			<result name="updateTheme" type="redirectAction">toThemesList</result>
+		</action>
+		<action name="toSortTheme" class="themeActionBg" method="toSortTheme">
+			<result name="toSortTheme">sort_duier_class.jsp</result>
+		</action>
+		<action name="sortTheme" class="themeActionBg" method="sortTheme">
+			<result name="sortTheme" type="redirectAction">toSortTheme</result>
+		</action>
+		<action name="deleteTheme" class="themeActionBg" method="deleteTheme">
+			<result name="deleteTheme" type="redirectAction">
+				<param name="actionName">toThemesList</param>
+			</result>
+		</action>
+		<action name="toAdList" class="adActionBg" method="toAdList">
+			<result name="toAdList">ad_list.jsp</result>
+		</action>
+		<action name="toAddAd" class="adActionBg" method="toAddAd">
+			<result name="toAddAd">add_ad.jsp</result>
+		</action>
+		<action name="addAd" class="adActionBg" method="addAd">
+			<result name="addAd" type="redirectAction">toAdList</result>
+		</action>
+		<action name="deleteAd" class="adActionBg" method="deleteAd">
+			<result name="deleteAd" type="redirectAction">toAdList</result>
+		</action>
+		<action name="toDuierList" class="duierActionBg" method="toDuierList">
+			<result name="toDuierList">duier_list.jsp</result>
+		</action>
+		<action name="toAppList" class="appActionBg" method="toAppList">
+			<result name="toAppList">app_list.jsp</result>
+		</action>
+		<action name="deleteApp" class="appActionBg" method="deleteApp">
+			<result name="deleteApp" type="redirectAction">toAppList</result>
+		</action>
+		<action name="toAddApp" class="appActionBg" method="toAddApp">
+			<result name="toAddApp">add_app.jsp</result>
+		</action>
+		<action name="addApp" class="appActionBg" method="addApp">
+			<interceptor-ref name="defaultStack">
+				<!-- 修改允许上传文件的大小(默认值是2M), 将调用FileUploadInterceptor中的setMaximumSize(223434555) -->
+				<!-- <param name="fileUpload.maximumSize">10485760</param>
+				配置允许上传文件的类型,如果有多个类型用","隔开
+				<param name="fileUpload.allowedTypes">application/vnd.android.package-archive</param>
+				配置允许上传文件的扩展名,如果有多个用","隔开
+				<param name="fileUpload.allowedExtensions">apk</param> -->
+			</interceptor-ref>
+			<result name="addApp" type="redirectAction">toAppList</result>
+			<result name="input" type="dispatcher">add_app.jsp</result>
+		</action>
+		<action name="toUpdatePass" class="passwordActionBg" method="toUpdatePassword">
+			<result name="toUpdatePassword">update_password.jsp</result>
+		</action>
+		<action name="updatePass" class="passwordActionBg" method="updatePassword">
+			<result name="updatePassword" type="redirectAction">
+				<param name="updateRemark">updateOk</param>
+				<param name="actionName">toUpdatePass</param>
+			</result>
+			<result name="input" >update_password.jsp</result>
+		</action>
+		<!-- 测试 -->
+		<action name="testJson" class="testJson" method="testJson"></action>
+	</package>
+</struts>

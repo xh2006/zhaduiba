@@ -1,0 +1,21 @@
+package com.zhadui.common.filter;
+
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionInvocation;
+import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+
+
+@SuppressWarnings("serial")
+public class LoginInterceptor_webFront extends AbstractInterceptor {
+
+	@Override
+	public String intercept(ActionInvocation arg0) throws Exception {
+		String login = (String)ActionContext.getContext().getSession().get("login");
+		if(login == null){
+			return "loginNow";
+		}else{
+			return arg0.invoke();
+		}
+	}
+}

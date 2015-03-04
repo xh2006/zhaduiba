@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.custom.i18n.resources" value="message" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<package name="personalPack" namespace="/personal" extends="struts-default">
+		<interceptors>
+			<interceptor name="loginInterceptor" class="com.zhadui.common.filter.LoginInterceptor_webFront"></interceptor>
+			<interceptor-stack name="personalStack">
+				<interceptor-ref name="loginInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="personalStack"></default-interceptor-ref>
+		<global-results>
+			<result name="loginPage" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">login</param>
+			</result>
+		</global-results>
+		
+		<action name="toPersonalCenter" class="personalCenterAction" method="toPersonalCenter">
+			<result name="toPersonalCenter">index.jsp</result>
+		</action>
+		<action name="toInfoDetails" class="personalCenterAction" method="toInfoDetails">
+			<result name="toInfoDetails">info_details.jsp</result>
+		</action>
+		<action name="toJoinedDuierList" class="personalCenterAction" method="toJoinedDuierList">
+			<result name="toJoinedDuierList">main.jsp</result>
+		</action>
+		<action name="toCreatedDuierList" class="personalCenterAction" method="toCreatedDuierList">
+			<result name="toCreatedDuierList">created_duier_list.jsp</result>
+		</action>
+		<action name="toUndertakeredDuierList" class="personalCenterAction" method="toUndertakeredDuierList">
+			<result name="toUndertakeredDuierList">undertakered_duier_list.jsp</result>
+		</action>
+		<action name="toUpdateInfo" class="personalCenterAction" method="toUpdateInfo">
+			<result name="toUpdateInfo">update_info.jsp</result>
+		</action>
+		<action name="updateInfo" class="personalCenterAction" method="updateInfo">
+			<result name="updateInfo" type="redirectAction">toInfoDetails</result>
+		</action>
+		<action name="updatePassword" class="personalCenterAction" method="updatePassword">
+			<result name="updatePassword">safe_center.jsp</result>
+			<result name="input">update_pwd.jsp</result>
+		</action>
+		<action name="updateEmail" class="safeCenterAction" method="updateEmail">
+			<result name="updateEmail">safe_center.jsp</result>
+			<result name="input">update_email.jsp</result>
+		</action>
+		<action name="toUpdatePhone" class="safeCenterAction" method="toUpdatePhone">
+			<result name="toUpdatePhone">update_phone.jsp</result>
+		</action>
+		<action name="sendUpdateValidMsg" class="safeCenterAction" method="sendUpdateValidMsg">
+			<result name="sendUpdateValidMsg">update_phone.jsp</result>
+			<result name="input">update_phone.jsp</result>
+		</action>
+		<action name="checkValidCode" class="safeCenterAction" method="checkValidCode">
+			<result name="checkValidCode">update_phone.jsp</result>
+			<result name="input">update_phone.jsp</result>
+		</action>
+		<action name="updateHeadImage" class="headImageAction" method="uploadHeadImage">
+			<result name="uploadHeadImage" type="redirectAction">toInfoDetails</result>
+			<result name="input">update_head.jsp</result>
+		</action>
+	</package>
+</struts>

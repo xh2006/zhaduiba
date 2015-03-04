@@ -1,0 +1,22 @@
+/**
+ * FileName: 	UserInfoDao.java
+ * FileDes:  	管理用户信息的接口申明。
+ * FileAuthors: XuHua
+ */
+package com.zhadui.front.dao;
+
+import java.util.Date;
+import com.zhadui.common.entity.UserInfo;
+import com.zhadui.common.entity.UserShowInfo;
+ 
+public interface UserInfoDao {
+	public int isExisted(String name, String value);
+	public UserInfo login(String phoneNumber, String password);
+	public void register(UserInfo userInfo);
+	public UserInfo getUserById(int id);
+	public UserInfo getUserByPhoneNumber(String phoneNumber);
+	public void insertUserInfo(UserInfo userInfo);
+	public void updateUserlastLoginTime(int id, Date loginTime);
+	public void updateUserInfo();
+	public UserShowInfo getUserShowInfoByUserId(int id);
+}

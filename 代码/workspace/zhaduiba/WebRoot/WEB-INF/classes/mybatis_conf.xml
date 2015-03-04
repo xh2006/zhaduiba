@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 别名 -->
+	<typeAliases>
+		<package name="com.zhadui.common.entity"/>
+	</typeAliases>
+	
+	<!-- 注册sql文件 -->
+	<mappers>
+		<mapper resource="com/zhadui/android/dao/impl/A_userInfoManage.xml"/>
+		<mapper resource="com/zhadui/android/dao/impl/A_duierClassManage.xml"/>
+		<mapper resource="com/zhadui/android/dao/impl/A_duierClassImageManage.xml"/>
+		<mapper resource="com/zhadui/android/dao/impl/A_duierInfoManage.xml"/>
+		<mapper resource="com/zhadui/android/dao/impl/A_duierStatusManage.xml"/>
+		<mapper resource="com/zhadui/android/dao/impl/A_userInfoDetailManage.xml"/>
+		<mapper resource="com/zhadui/android/dao/impl/A_duierChatInfoManage.xml"/>
+		<mapper resource="com/zhadui/android/dao/impl/A_duierUndertakerInfoManage.xml"/>
+		<mapper resource="com/zhadui/android/dao/impl/A_appInfoManage.xml"/>
+		<!-- 网站前台sql文件映射开始 -->
+		<mapper resource="com/zhadui/front/dao/impl/DuierInfoManage.xml"/>
+		<mapper resource="com/zhadui/front/dao/impl/UserInfoManage.xml"/>
+		<mapper resource="com/zhadui/front/dao/impl/DuierShowInfoManage.xml" />
+		<mapper resource="com/zhadui/personal/dao/impl/personalCenter.xml" />
+		<!-- 网站前台sql文件映射结束 -->
+		<!-- 网站后台 -->
+		<mapper resource="com/zhadui/bg/dao/impl/WB_userManage.xml" />
+		<mapper resource="com/zhadui/bg/dao/impl/WB_duierclassManage.xml" />
+		<mapper resource="com/zhadui/bg/dao/impl/WB_duierclassimageManage.xml" />
+		<mapper resource="com/zhadui/bg/dao/impl/WB_duierinfoManage.xml" />
+		<mapper resource="com/zhadui/bg/dao/impl/WB_appinfoManage.xml" />
+	</mappers>
+</configuration>

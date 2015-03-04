@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="zhaduiba"
+  id="myeclipse.1418956353892"
+  context-root="/zhaduiba"
+  j2ee-spec="6.0"
+  archive="zhaduiba.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,279 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>扎堆吧</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="">
+	
+	<link href="css/base.css" type="text/css" rel="stylesheet" />
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" />
+	
+	<style type="text/css">
+		body{
+			background-image:url('images/reg/bg_body.jpg');
+		}
+		#page{
+			margin:0px auto;
+			width:1000px;
+			position:relative;
+		}
+		#pageHeader{
+			height:80px;
+			padding:10px;
+		}
+		#pageBody{
+			height:450px;
+			padding:10px;
+		}
+		#pageFooter{
+			
+		}
+		#showImg{
+			width:500px;
+			height:450px;
+			padding-top:30px;
+			padding-left:10px;
+			float:left;
+		}
+		#loginNowBtn{
+			float:right;margin-top:10px;margin-right:20px;
+		}
+		#imgShow{
+			
+		}
+		#headerImgShow{
+			float:left;width:120px;height:120px;overflow:hidden;
+		}
+		#explore{
+			
+		}
+		.inputStyle{
+			width:240px;
+			height:26px;
+		}
+		.verifyCode{
+			width:100px;
+			font-size:12px;
+		}
+	</style>
+	
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/Validform_v5.3.2.js"></script>
+	<script type="text/javascript" src="js/WdatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="js/jquery.Jcrop.js"></script>
+	<script type="text/javascript" src="js/uploadPreview.js"></script>
+	
+	<script type="text/javascript">
+	
+		$(document).ready(function(){
+			$("#regItem").Validform(
+				{tiptype:4}
+			);
+			
+			// 时间控件		
+			$("#bornDate").click(function(){
+				WdatePicker();
+			});
+		});
+	
+	</script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			$("#si_input").keyup(function(){
+				var len = ($("#si_input").val()).length;
+				$("#wordSum").text(len + '/240');
+			});
+		});
+
+	</script>
+	
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			new uploadPreview({  Width: 380, Height: 380, UpBtn: "explore", DivShow: "imgFrame", ImgShow: "imgShow" });
+			// 变量声明
+			var jcrop_api = 0,							
+				boundx,
+				boundy,
+				// Grab some information about the preview pane
+				$preview = $('#fi_right'),
+				$pcnt = $('#fi_right #headerImgShow'),
+				$pimg = $('#fi_right #headerImgShow img'),
+
+				xsize = $pcnt.width(),
+				ysize = $pcnt.height();
+				
+			$("#explore").change(function(){	
+				if(navigator.userAgent.indexOf("MSIE") > -1){
+					// ie浏览器
+					$('#imgShow').attr("src",$("#explore").val());
+				}
+				
+				$pimg.attr("src",$("#imgShow").attr("src"));
+				
+				if(jcrop_api != 0){
+					jcrop_api.destroy();
+					// 清空imgShow和的$pimg样式
+					$('#imgShow').removeAttr("style");
+					$('#imgShow').removeAttr("style");
+					// $pimg.removeAttr("style");
+				}
+		
+				$('#imgShow').Jcrop({
+					boxWidth: 380,
+					boxHeight: 380,
+					onChange: updatePreview,
+					onSelect: updatePreview,
+					aspectRatio: xsize / ysize
+				},function(){
+					var bounds = this.getBounds();
+					boundx = bounds[0];
+					boundy = bounds[1];
+					jcrop_api = this;
+					
+					// 设置缩放后图片的大小
+					var scale = this.getScaleFactor();
+					$('#img_w').val(Math.round(boundx / scale[0]));
+					$('#img_h').val(Math.round(boundy / scale[1]));
+					// Move the preview into the jcrop container for css positioning
+					//$preview.appendTo(jcrop_api.ui.holder);
+				});
+			});	
+
+			function updatePreview(c)
+			{
+				if (parseInt(c.w) > 0)
+				{
+					var rx = xsize / c.w;
+					var ry = ysize / c.h;
+
+					$pimg.css({
+					  width: Math.round(rx * boundx) + 'px',
+					  height: Math.round(ry * boundy) + 'px',
+					  marginLeft: '-' + Math.round(rx * c.x) + 'px',
+					  marginTop: '-' + Math.round(ry * c.y) + 'px'
+					});
+					
+					$('#rect_x').val(c.x);
+					$('#rect_y').val(c.y);
+					$('#rect_w').val(c.w);
+					$('#rect_h').val(c.h);
+				}
+			};
+		});
+
+	</script>
+	
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			var isHeaderImgUpload = 0;
+			$("#uploadBtn").click(function(){
+				$("#upload").trigger("click");
+				isHeaderImgUpload = 1;
+			});
+			
+			$("#saveBtn").click(function(){
+				$("#save").trigger("click");
+			});
+		});
+
+	</script>
+	
+</head>
+
+<body>
+<div id="page">
+	<div id="pageHeader">
+		<img src="images/logo.png" width="64px" height="41px"><span style="font-size:24px;color:#006600;">扎堆儿</span></img>
+	</div>
+	<div id="pageBody">
+		<div id="fi_left" style="width:460px;float:left;">
+			<div style="font-size:24px;color:EFEFEF;">完善资料</div>
+			<div><img src="images/reg/splitLine.png" /></div>
+			<form id="regItem" method="post" action="saveProfile"> 
+				<div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>*</font>昵称:
+					<input id=" " class="inputStyle" type="text" name="nickname" datatype="s" errormsg="该昵称已存在！" nullmsg="请填写昵称！" sucmsg="可以使用该昵称！"></input><br />
+				</div>
+				<div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别: &nbsp;<input type="radio" name="sex" value="1">男</input>&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="0">女</input><br /><br />
+				</div>
+				<div>
+					出生日期: &nbsp;<input id="bornDate" class="inputStyle Wdate" name="bornDate" type="text" style="height:26px;"></input><br /><br />
+				</div>
+				<div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学历: <input id="" class="inputStyle" type="text" name="eb"></input><br /><br />
+				</div>
+				<div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;职业: <input id="" class="inputStyle" type="text" name="vocation"></input><br /><br />
+				</div>
+				<div>
+					婚姻状况: &nbsp;<input type="radio" name="marital" value="0" checked>未婚</input>&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="1" value="married">已婚</input><br /><br />
+				</div>
+				<div>
+					<font color='red'>*</font>常用邮箱: <input id="" class="inputStyle" type="text" name="email" datatype="e" nullmsg="请输入您常用的邮箱地址，用于密码找回。" sucmsg=""></input><br />
+				</div>
+				<div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家乡: <input id="" class="inputStyle" type="text" name="hometown"></input><br /><br />
+				</div>
+				<div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签名: <input id="" class="inputStyle" type="text" name="sign" style="width:320px;" ></input><br /><br />
+				</div>
+				<div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;爱好: <input id="" class="inputStyle" type="text" name="hobby" style="width:320px;"></input><br /><br />
+				</div>
+				<div>
+					<span>自我介绍:	</span><span id="wordSum" style="float:right;margin-right:10px;">0/240</span>
+					<div>
+						<textarea id="si_input" class="inputStyle" name="si" placeholder="字数限制在240字内" style="width:450px;height:100px;resize:none;"></textarea>
+					</div>
+				</div>
+				<a id="saveBtn" href="#"><img src="images/fill/save.png" /></a>
+				<input id="save" type="submit" style="display:none;"></input>
+			</form>
+		</div>
+		<div id="fi_right" style="width:520px;float:right;">
+			<div id="headerImgShow">
+				<s:if test="headerImgUrl != null">				
+					<img src="<s:property value='headerImgUrl'></s:property>" width="120px" height="120px">
+				</s:if>
+				<s:else>
+					<img src="images/fill/header.jpg" width="120px" height="120px">
+				</s:else>	
+			</div>
+			<div id="orginImg" style="float:right;">
+				<div id="imgFrame" style="width:380px; height:380px; background-color:#f0efef;">
+					<img id="imgShow"></img>
+				</div>
+				<form action="uploadImage" method="post" enctype="multipart/form-data">	
+					<input id="explore" name="headImageTemp" type="file"></input>
+					<input id="rect_x" type="hidden" name="rect_x" value=""></input>
+					<input id="rect_y" type="hidden" name="rect_y" value=""></input>
+					<input id="rect_w" type="hidden" name="rect_w" value=""></input>
+					<input id="rect_h" type="hidden" name="rect_h" value=""></input>
+					<input id="img_w" type="hidden" name="img_w" value=""></input>
+					<input id="img_h" type="hidden" name="img_h" value=""></input>
+					<a id="uploadBtn" href="javascript:void(0);" ><img src="images/fill/upload.png" style="padding-top:20px;" /></a>
+					<input id="upload" type="submit" style="display:none;"></input>
+				</form>				
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+

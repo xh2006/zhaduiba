@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<!DOCTYPE mapper  
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+	<mapper namespace="com.zhadui.android.dao.impl.A_userInfoManage">
+		<resultMap type="UserInfo" id="userResult">
+			<id column="userInfo_id" property="userInfoId"/>
+			<result column="userInfo_name" property="userInfoName"/>
+			<result column="userInfo_age" property="userInfoAge"/>
+			<result column="userInfo_sex" property="userInfoSex"/>
+			<result column="userInfo_headImage" property="userInfoHeadImage"/>
+			<result column="userInfo_account" property="userInfoAccount"/>
+			<result column="userInfo_password" property="userInfoPassword"/>
+			<result column="userInfo_email" property="userInfoEmail"/>
+			<result column="userInfo_phone_number" property="userInfoPhoneNumber"/>
+			<result column="userInfo_last_login_time" property="userInfoLastLoginTime"/>
+			<result column="userInfo_experiencePoints" property="userInfoExperiencePoints"/>
+			<result column="userInfo_credits" property="userInfoCredits"/>
+			<result column="userInfo_location_long" property="userInfoLocationLong"/>
+			<result column="userInfo_location_lat" property="userInfoLocationLat"/>
+			<result column="userInfo_srcIP" property="userInfoSrcIp"/>
+			<result column="userInfo_ext1" property="userInfoExt1"/>
+			<result column="userInfo_ext2" property="userInfoExt2"/>
+			<association property="userInfoDesignation" javaType="UserDesignation">
+				<id column="userDesignation_id" property="userDesignationId"/>
+				<result column="userDesignation_content" property="userDesignationContent" />
+				<result column="userDesignation_ext1" property="userDesignationExt1" />
+				<result column="userDesignation_ext2" property="userDesignationExt2" />
+			</association>
+		</resultMap>
+	    <select id="getUserByPhoneAndPwd" resultMap="userResult">  
+	        select * from userInfo where userInfo_phone_number=#{userInfoPhoneNumber} and userInfo_password=#{userInfoPassword}
+	    </select>
+	    
+	    <select id="getUserByAcountAndPwd" resultMap="userResult">  
+	        select * from userInfo where userInfo_account=#{userInfoAccount} and userInfo_password=#{userInfoPassword}
+	    </select>
+	    
+	    <select id="getUserById" parameterType="int" resultMap="userResult">
+	    	select * from userInfo u,userDesignation d where u.userInfo_designationId=d.userDesignation_id and userInfo_id = #{userInfoId}
+	    </select>
+	    
+	    <insert id="insertUser" useGeneratedKeys="true" keyProperty="userInfoId" parameterType="UserInfo">
+	    	insert into
+	    	userInfo(userInfo_account,userInfo_password,userInfo_phone_number,userInfo_last_login_time,userInfo_experiencePoints,userInfo_credits)
+	    	values(#{userInfoAccount},#{userInfoPassword},#{userInfoPhoneNumber},#{userInfoLastLoginTime},#{userInfoExperiencePoints},#{userInfoCredits})
+	    </insert>
+	</mapper> 

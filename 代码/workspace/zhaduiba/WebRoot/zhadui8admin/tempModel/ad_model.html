@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+$(function(){
+	if($("#ad_model_content").height()>$(window).height()-162){
+		$("#ad_model_content").height($(window).height());
+	}
+});
+</script>
+<style type="text/css">
+*{
+	margin:0px;
+	padding:0px;
+	}
+#ad_model_main{
+	width:1000px;
+	margin:0px auto;
+	}
+#ad_model_header{
+	width:1000px;
+	height:112px;
+	background:url(../images/bg_header.jpg);
+	}
+#ad_model_content{
+	width:1000px;
+	}
+#ad_model_footer{
+	width:1000px;
+	height:50px;
+	background-color:#67A367;
+	text-align:right;
+	line-height:50px;
+	font-family:"微软雅黑";
+	font-size:14px;
+	color:#FFF;
+	}
+</style>
+</head>
+
+<body>
+<div id="ad_model_main">
+	<div id="ad_model_header">
+    	<img src="../images/logo.png" style="margin-top:30px; margin-left:100px;" />
+        <img src="../images/zde.png" />
+    </div>
+    <div id="ad_model_content">##adContent##</div>
+    <div id="ad_model_footer">www.zhadui8.cn</div>
+</div>
+</body>
+</html>

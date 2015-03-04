@@ -1,0 +1,549 @@
+create database zhadui8_gs;
+use zhadui8_gs;
+
+create table user(
+	user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	user_account VARCHAR(64) NOT NULL,
+	user_pwd VARCHAR(128) NOT NULL,
+	user_privilege INT NOT NULL,
+	user_loginIp VARCHAR(32) NOT NULL,
+	user_loginTime DATETIME NOT NULL,
+	user_ext1 INT,
+	user_ext2 VARCHAR(256)
+);
+
+create table userInfo(
+	userInfo_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	userInfo_name VARCHAR(128),
+	userInfo_age SMALLINT,
+	userInfo_sex TINYINT,
+	userInfo_headImage VARCHAR(2048),
+	userInfo_designationId INT,
+	userInfo_account VARCHAR(128) NOT NULL,
+	userInfo_password VARCHAR(128) NOT NULL,
+	userInfo_email VARCHAR(256),
+	userInfo_phone_number VARCHAR(16) NOT NULL,
+	userInfo_last_login_time DATETIME NOT NULL,
+	userInfo_experiencePoints INT NOT NULL,
+	userInfo_credits INT NOT NULL,
+	userInfo_location_long DOUBLE,
+	userInfo_location_lat DOUBLE,
+	userInfo_srcIP VARCHAR(32),
+	userInfo_ext1 INT,
+	userInfo_ext2 VARCHAR(256)
+);
+
+create index index_phoneNumber on userInfo(userInfo_phone_number);
+
+create table userDesignation(
+	userDesignation_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	userDesignation_content VARCHAR(128) NOT NULL,
+	userDesignation_ext1 INT,
+	userDesignation_ext2 VARCHAR(256)
+);
+
+create table userInfoDetail(
+	userInfoDetail_id INT NOT NULL PRIMARY KEY,
+	userInfoDetail_born_time DATETIME,
+	userInfoDetail_hometown VARCHAR(256),
+	userInfoDetail_education_status VARCHAR(256),
+	userInfoDetail_school INT,
+	userInfoDetail_vocation VARCHAR(64),
+	userInfoDetail_constellation VARCHAR(8),
+	userInfoDetail_marriage_status TINYINT,
+	userInfoDetail_signal VARCHAR(256),
+	userInfoDetail_hobby VARCHAR(256),
+	userInfoDetail_selfIntroduction VARCHAR(256),
+	userInfoDetail_friends VARCHAR(2048) NOT NULL,
+	userInfoDetail_location_area INT,
+	userInfoDetail_create_time DATETIME NOT NULL,
+	userInfoDetail_ext1 INT,
+	userInfoDetail_ext2 VARCHAR(256)
+);
+
+create table duierClass(
+	duierClass_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	duierClass_name VARCHAR(128) NOT NULL,
+	duierClass_father_id INT,
+	duierClass_layer INT NOT NULL,
+	duierClass_hot_level INT NOT NULL,
+	duierClass_note VARCHAR(128) NOT NULL,
+	duierClass_ext1 INT,
+	duierClass_ext2 VARCHAR(128)
+);
+
+create table duierInfo(
+	duierInfo_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	duierInfo_creator_id INT NOT NULL,
+	duierInfo_create_time DATETIME NOT NULL,
+	duierInfo_name VARCHAR(64) NOT NULL,
+	duierInfo_class_id INT NOT NULL,
+	duierInfo_start_time DATETIME NOT NULL,
+	duierInfo_end_time DATETIME NOT NULL,
+	duierInfo_update_time DATETIME NOT NULL,
+	duierInfo_location_long DOUBLE,
+	duierInfo_location_lat DOUBLE,
+	duierInfo_area INT NOT NULL,
+	duierInfo_location VARCHAR(256) NOT NULL,
+	duierInfo_Lowlimit_person INT NOT NULL,
+	duierInfo_Uplimit_person INT NOT NULL,
+	duierInfo_activity_fee FLOAT,
+	duierInfo_activity_introduction VARCHAR(256) NOT NULL,
+	duierInfo_activity_img VARCHAR(2048),
+	duierInfo_activity_status TINYINT NOT NULL,
+	duierInfo_need_undertaker TINYINT NOT NULL,
+	duierInfo_ext1 INT,	
+	duierInfo_ext2 VARCHAR(256)
+);
+
+create table duierStatus(
+	duierStatus_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	duierStatus_duier_Id BIGINT NOT NULL,
+	duierStatus_follower_id INT,
+	duierStatus_participant_id INT,
+	duierStatus_ext1 INT,
+	duierStatus_ext2 VARCHAR(256)
+);
+
+create table duierUndertakeInfo(
+	duierUndertakeInfo_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	duierUndertakeInfo_duierId BIGINT NOT NULL,
+	duierUndertakeInfo_userId INT NOT NULL,
+	duierUndertakeInfo_affair VARCHAR(64),
+	duierUndertakeInfo_fee FLOAT,
+	duierUndertakeInfo_time DATETIME NOT NULL,
+	duierUndertakeInfo_beSelected INT NOT NULL,
+	duierUndertakeInfo_ext1 INT,
+	duierUndertakeInfo_ext2 VARCHAR(256)
+);
+
+create table duierOperationPrivilege(
+	duierOperationPrivilege_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	duierOperationPrivilege_userRole INT NOT NULL,
+	duierOperationPrivilege_pri INT NOT NULL
+);
+
+create table duierChatInfo(
+	duierChatInfo_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	duierChatInfo_talkerId INT NOT NULL,
+	duierChatInfo_duierId BIGINT NOT NULL,
+	duierChatInfo_to_talkerId INT,
+	duierChatInfo_publish_time DATETIME NOT NULL,
+	duierChatInfo_publish_type TINYINT NOT NULL,
+	duierChatInfo_publish_content_type TINYINT,
+	duierChatInfo_publish_content VARCHAR(2048) NOT NULL,
+	duierChatInfo__ext1 INT,
+	duierChatInfo__ext2 VARCHAR(256)
+);
+
+create table duierAssess(
+	duierAssess_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	duierAssess_duierId BIGINT NOT NULL,
+	duierAssess_experience_score INT NOT NULL,
+	duierAssess_creator_score INT NOT NULL,
+	duierAssess_undertaker_score INT NOT NULL,
+	duierAssess_res1_score INT,
+	duierAssess_res2_score INT,
+	duierAssess_ext1 INT,
+	duierAssess_ext2 VARCHAR(256)
+);
+
+create table userCredits(
+	userCredits_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	userCredits_cause VARCHAR(64) NOT NULL,
+	userCredits_points INT NOT NULL
+);
+
+create table userExperience(
+	userExperience_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	userExperience_cause VARCHAR(64) NOT NULL,
+	userExperience_points INT NOT NULL
+);
+
+create table appInfo(
+	appInfo_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	appInfo_name VARCHAR(64) NOT NULL,
+	appInfo_versionName VARCHAR(16) NOT NULL,
+	appInfo_versionCode INT NOT NULL,
+	appInfo_updateTime DATETIME NOT NULL,
+	appInfo_summary VARCHAR(256) NOT NULL,
+	appInfo_downloadUrl VARCHAR(2048) NOT NULL,
+	appInfo_qr_code VARCHAR(2048) NOT NULL,
+	appInfo_ext1 INT,
+	appInfo_ext2 VARCHAR(256)
+);
+
+create table duierClassImage(
+	duierClassImage_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	duierClassImage_duierId INT,
+	duierClassImage_duierClassId INT,
+	duierClassImage_type TINYINT NOT NULL,
+	duierClassImage_imageUrl VARCHAR(2048) NOT NULL,
+	duierClassImage_summary VARCHAR(64) NOT NULL,
+	duierClassImage_infoUrl VARCHAR(2048),
+	duierClassImage_ext1 INT,
+	duierClassImage_ext2 VARCHAR(256)
+);
+
+INSERT INTO userDesignation( userDesignation_content ) VALUES('CEO');
+	
+INSERT INTO userInfo(
+	userInfo_name,
+	userInfo_age,
+	userInfo_sex,
+	userInfo_headImage,
+	userInfo_designationId,
+	userInfo_account,
+	userInfo_password,
+	userInfo_email,
+	userInfo_phone_number,
+	userInfo_last_login_time,
+	userInfo_experiencePoints,
+	userInfo_credits,
+	userInfo_location_long,
+	userInfo_location_lat,
+	userInfo_srcIP) VALUES (
+	'Tom',
+	22,
+	1,
+	'http://image.baidu.com/i?ct=503316480&tn=baiduimagedetail&statnum=head&ipn=d&z=0&width=0&height=0&cg=head&word=头像%20不同风格%20个性&ie=utf-8&in=3354&cl=2&st=&pn=10&rn=1&di=&ln=17129&&fmq=1378374347070_R&se=&sme=0&tab=&face=&&is=0,-1&cs=0,0&adpicid=undefined&istype=&ist=&jit=&objurl=http%3A%2F%2Fc.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F32fa828ba61ea8d35fc54c03940a304e241f58d5.jpg',
+	1,
+	'nicknameTom',
+	'57D2E0DB790F7491E4DB6FBBD6DC31C089A3EF3109F0136D52300E0B0781D0FA73F39612643C9213797400F6388FAF7F56603DDCA3DFA68A11BA32E07C46BE4E',
+	'Tom@163.com',
+	'13333334444',	
+	'2014-12-29 14:24',
+	0,
+	0,
+	128.01234,
+	97.569876,
+	'192.168.1.111'
+ );
+
+INSERT INTO userInfoDetail(
+	userInfoDetail_id,
+	userInfoDetail_born_time,
+	userInfoDetail_hometown,
+	userInfoDetail_education_status,
+	userInfoDetail_school,
+	userInfoDetail_vocation,
+	userInfoDetail_constellation,
+	userInfoDetail_marriage_status,
+	userInfoDetail_signal,
+	userInfoDetail_hobby,
+	userInfoDetail_selfIntroduction,
+	userInfoDetail_friends,
+	userInfoDetail_location_area,
+	userInfoDetail_create_time) VALUES (
+	1,
+	'2003-12-29 11:16',
+	'甘肃兰州',
+	'本科',
+	13456,
+	'教练',
+	'射手座',
+	0,
+	'ABCDEFGHIJK',
+	'跑步 看书',
+	'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+	'',
+	620202,
+	'2014-12-29 11:16'
+ );
+ 
+INSERT INTO duierClass(
+	duierClass_name,
+	duierClass_father_id,
+	duierClass_layer,
+	duierClass_hot_level,
+	duierClass_note)VALUES(
+	"运动",
+	0,
+	2,
+	5,
+	"你随便来！"
+);
+
+INSERT INTO duierInfo(
+	duierInfo_creator_id,
+	duierInfo_create_time,
+	duierInfo_name,
+	duierInfo_class_id,
+	duierInfo_start_time,
+	duierInfo_end_time,
+	duierInfo_update_time,
+	duierInfo_location_long,
+	duierInfo_location_lat,
+	duierInfo_area,
+	duierInfo_location,
+	duierInfo_Lowlimit_person,
+	duierInfo_Uplimit_person,
+	duierInfo_activity_fee,
+	duierInfo_activity_introduction,
+	duierInfo_activity_status,
+	duierInfo_need_undertaker)VALUES(
+	2,
+	'2014-12-29 11:00',
+	'一起跑步吧',
+	2,
+	'2014-01-02 8:00',
+	'2014-01-02 12:00',
+	'2014-12-29 11:01',
+	128.01234,
+	97.569876,
+	620102,
+	'黄河大桥',
+	3,
+	100,
+	89.5,
+	'想一起冬日锻炼身体的人都来参与我们集体跑步，让跑步充实我们的生活，强健我们的体魄。',
+	1,
+	1
+);
+
+INSERT INTO duierInfo(
+	duierInfo_creator_id,
+	duierInfo_create_time,
+	duierInfo_name,
+	duierInfo_class_id,
+	duierInfo_start_time,
+	duierInfo_end_time,
+	duierInfo_update_time,
+	duierInfo_location_long,
+	duierInfo_location_lat,
+	duierInfo_area,
+	duierInfo_location,
+	duierInfo_Lowlimit_person,
+	duierInfo_Uplimit_person,
+	duierInfo_activity_fee,
+	duierInfo_activity_introduction,
+	duierInfo_activity_status,
+	duierInfo_need_undertaker)VALUES(
+	2,
+	'2014-12-29 11:00',
+	'测试2',
+	2,
+	'2014-01-02 8:00',
+	'2014-01-02 12:00',
+	'2014-12-29 11:01',
+	128.01234,
+	97.569876,
+	620102,
+	'黄河大桥1',
+	3,
+	100,
+	89.5,
+	'测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2',
+	1,
+	1
+);
+
+INSERT INTO duierInfo(
+	duierInfo_creator_id,
+	duierInfo_create_time,
+	duierInfo_name,
+	duierInfo_class_id,
+	duierInfo_start_time,
+	duierInfo_end_time,
+	duierInfo_update_time,
+	duierInfo_location_long,
+	duierInfo_location_lat,
+	duierInfo_area,
+	duierInfo_location,
+	duierInfo_Lowlimit_person,
+	duierInfo_Uplimit_person,
+	duierInfo_activity_fee,
+	duierInfo_activity_introduction,
+	duierInfo_activity_status,
+	duierInfo_need_undertaker)VALUES(
+	2,
+	'2015-1-2 11:00',
+	'测试数据3',
+	2,
+	'2015-1-2 8:00',
+	'2015-1-2 12:00',
+	'2015-1-2 11:01',
+	128.01234,
+	97.569876,
+	620102,
+	'黄河大桥2',
+	3,
+	100,
+	89.5,
+	'测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据3测试数据32测试2测试2测试2测试2测试2测试2测试2测试2测试2',
+	1,
+	1
+);
+
+INSERT INTO duierStatus(
+	duierStatus_duier_Id,
+	duierStatus_follower_id,
+	duierStatus_participant_id)VALUES(
+	1,
+	7,
+	7
+);
+
+INSERT INTO duierStatus(
+	duierStatus_duier_Id,
+	duierStatus_follower_id,
+	duierStatus_participant_id)VALUES(
+	1,
+	3,
+	5
+);
+
+INSERT INTO duierStatus(
+	duierStatus_duier_Id,
+	duierStatus_follower_id,
+	duierStatus_participant_id)VALUES(
+	1,
+	4,
+	6
+);
+
+INSERT INTO duierClassImage(
+	duierClassImage_duierId,
+	duierClassImage_duierClassId,
+	duierClassImage_type,
+	duierClassImage_imageUrl,
+	duierClassImage_summary,
+	duierClassImage_infoUrl)VALUES(
+	1,
+	2,
+	0,
+	'http://image.baidu.com/i?ct=503316480&z=0&tn=baiduimagedetail&ipn=d&word=%E8%B7%91%E6%AD%A5&step_word=%E8%B7%91%E6%AD%A5&pn=50&spn=0&di=79890812210&pi=&rn=1&is=&istype=2&ie=utf-8&oe=utf-8&in=3029&cl=2&lm=-1&st=-1&cs=1191801195%2C1064460885&os=3431541844%2C3607935736&adpicid=0&ln=1000&fr=acint&fmq=1419824305071_R&ic=0&s=&se=1&sme=0&tab=&width=&height=&face=0&ist=&jit=&cg=&objurl=http%3A%2F%2Fww2.sinaimg.cn%2Fbmiddle%2F6693ce84jw1ef2luamcjbg208c07bdgv.gif&fromurl=ippr_z2C%24qAzdH3FAzdH3Fooo_z%26e3Bhwghwgjof_z%26e3Bv54AzdH3FICrjpAzdH3Fkz1uAzdH3Fda89-a9-anAzdH3F9dmcd9d_z%26e3Bfip4s',
+	'像风一样',
+	NULL
+);
+
+INSERT INTO appInfo(
+	appInfo_name,
+	appInfo_versionName,
+	appInfo_versionCode,
+	appInfo_updateTime,
+	appInfo_summary,
+	appInfo_downloadUrl,
+	appInfo_qr_code)VALUES(
+	'ZhaDuiEr8_20141230_installer',
+	'1.00',
+	89,
+	'2014-12-30',
+	'A base version',
+	'http://www.zhadui8.cn/Download/android/20141230/ZhaDuiEr8_20141230_installer',
+	'http://www.zhadui8.cn/Download/android/20141230/ZhaDuiEr8_20141230_installer_qr_code.jpg'
+);
+
+INSERT INTO duierAssess(
+	duierAssess_duierId,
+	duierAssess_experience_score,
+	duierAssess_creator_score,
+	duierAssess_undertaker_score)VALUES(
+	1,
+	90,
+	90,
+	80
+);
+
+INSERT INTO duierUndertakeInfo(
+	duierUndertakeInfo_duierId,
+	duierUndertakeInfo_userId,
+	duierUndertakeInfo_affair,
+	duierUndertakeInfo_fee,
+	duierUndertakeInfo_time,
+	duierUndertakeInfo_beSelected)VALUES(
+	1,
+	1,
+	'司机',
+	180.5,
+	'2014-12-30',
+	0
+);
+
+INSERT INTO duierUndertakeInfo(
+	duierUndertakeInfo_duierId,
+	duierUndertakeInfo_userId,
+	duierUndertakeInfo_affair,
+	duierUndertakeInfo_fee,
+	duierUndertakeInfo_time,
+	duierUndertakeInfo_beSelected)VALUES(
+	1,
+	7,
+	'司机',
+	160,
+	'2014-12-30',
+	1
+);
+
+INSERT INTO duierChatInfo(
+	duierChatInfo_talkerId,
+	duierChatInfo_duierId,
+	duierChatInfo_to_talkerId,
+	duierChatInfo_publish_time,
+	duierChatInfo_publish_type,
+	duierChatInfo_publish_content_type,
+	duierChatInfo_publish_content)VALUES(
+	1,
+	1,
+	0,
+	'2014-12-30 11:27:02',
+	1,
+	1,
+	'公司一男同事和一女同事开玩笑打闹时男的不小心把香水喷到女的眼睛里，女的瞬间泪流满面，男的豪爽地说：“没事，瞎了我养你一辈子!。”刚巧这男的女朋友来接他下班，在门口听到了这句。男的没等女朋友开口，果断地拉着女同事到他女朋友身边说：“来，叫妈!”'
+);
+
+INSERT INTO duierChatInfo(
+	duierChatInfo_talkerId,
+	duierChatInfo_duierId,
+	duierChatInfo_to_talkerId,
+	duierChatInfo_publish_time,
+	duierChatInfo_publish_type,
+	duierChatInfo_publish_content_type,
+	duierChatInfo_publish_content)VALUES(
+	2,
+	1,
+	0,
+	'2014-12-30 11:29:02',
+	1,
+	1,
+	'天气不错做公交上班，没座了只好站着，旁边一美女穿的很少在低头玩手机，那胸，哇真美，妹子不一会就抬头问我，大哥你是不是哪里不舒服，我一听要犯桃花啊，笑嘻嘻的说没有啊，结果妹子一巴掌打我脸上骂道:“死变态，没病哈喇子流我一裙子。”'
+);
+
+INSERT INTO duierChatInfo(
+	duierChatInfo_talkerId,
+	duierChatInfo_duierId,
+	duierChatInfo_to_talkerId,
+	duierChatInfo_publish_time,
+	duierChatInfo_publish_type,
+	duierChatInfo_publish_content_type,
+	duierChatInfo_publish_content)VALUES(
+	7,
+	1,
+	2,
+	'2014-12-30 11:29:02',
+	1,
+	2,
+	'http://image.baidu.com/i?ct=503316480&z=0&tn=baiduimagedetail&ipn=d&word=%E5%9B%BE%E7%89%87%20%E9%A3%8E%E6%99%AF&step_word=&pn=78&spn=0&di=18680687740&pi=&rn=1&is=&istype=&ie=utf-8&oe=utf-8&in=4711&cl=2&lm=-1&st=&cs=1662473045%2C153551678&os=44340600%2C1508347561&adpicid=0&ln=1000&fr=ala_avaloc1&fmq=1419910990002_R&ic=&s=&se=&sme=0&tab=&width=&height=&face=&ist=&jit=&cg=aladdin&objurl=http%3A%2F%2Fimg3.3lian.com%2F2014%2Fs5%2F14%2Fd%2F37.jpg&fromurl=ippr_z2C%24qAzdH3FAzdH3Fooo_z%26e3Bnstwg_z%26e3Bv54AzdH3F2tuAzdH3Fda89AzdH3Fa8-8bAzdH3F9lad9_z%26e3Bip4s'
+);
+
+INSERT INTO duierOperationPrivilege(
+	duierOperationPrivilege_userRole,
+	duierOperationPrivilege_pri)VALUES(
+	1,
+	0x11
+);
+
+INSERT INTO duierOperationPrivilege(
+	duierOperationPrivilege_userRole,
+	duierOperationPrivilege_pri)VALUES(
+	2,
+	0x19
+);
+
+INSERT INTO duierOperationPrivilege(
+	duierOperationPrivilege_userRole,
+	duierOperationPrivilege_pri)VALUES(
+	3,
+	0x3B
+);
+

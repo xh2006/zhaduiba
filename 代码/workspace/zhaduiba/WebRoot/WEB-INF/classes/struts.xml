@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.custom.i18n.resources" value="message" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="addCache" class="addCache" method="addCache">
+			<result name="addCache">index.jsp</result>
+		</action>
+		<action name="getCache" class="getCache" method="getCache">
+			<result name="getCache">index.jsp</result>
+		</action>
+		<action name="adminToLogin" class="adminLogin" method="adminToLogin">
+			<result name="adminToLogin">/admin_login.jsp</result>
+		</action>
+		<action name="adminLogin" class="adminLogin" method="adminLogin">
+			<result name="adminLogin" type="redirectAction">
+				<param name="namespace">/zhadui8admin</param>
+				<param name="actionName">adminToIndex</param>
+			</result>
+			<result name="input" type="dispatcher">/admin_login.jsp</result>
+		</action>
+		<action name="downloadApk" class="downloadAction">
+			<result name="success" type="stream">
+				<!-- contentType 指定下载文件的文件类型 —— application/octet-stream 表示无限制   -->  
+				<!-- <param name="contentType">application/vnd.android.package-archive</param> -->
+				<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+				<!-- contentDisposition 使用经过转码的文件名作为下载文件名"，attachment;将调用该Action中的getFileName方法 -->
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<!-- inputName 流对象名 —— 这里写inputStream，它就会自动去找Action中的getInputStream方法 -->  
+				<param name="inputName">inputStream</param>
+				<!-- bufferSize 下载文件的缓冲大小  -->
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+		<!-- 验证码 -->
+		<action name="getRandomCode" class="randomCode" method="getRandomCode"></action>
+	</package>
+	<include file="struts_Android.xml"></include>
+	<include file="struts_web_front.xml"></include>
+	<include file="struts_web_bg.xml"></include>
+	<include file="struts_web_personal.xml"></include>
+</struts>
